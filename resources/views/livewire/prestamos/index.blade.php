@@ -1,7 +1,3 @@
-
-
-
-
 @extends('layouts.app')
 @section('title', __('Gestion De Prestamos'))
 @section('content')
@@ -9,32 +5,53 @@
 
 
 
-@include('partials.sidebar')
-
-
-
-<section class="home-section h-50 ">
-    @include('partials.nav')
+    @include('partials.sidebar')
 
     
-   
-    <div class="col-11 m-auto">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @livewire('prestamos')
-                   
-                </div>     
-            </div>   
-        </div>
 
+    <section class="home-section " >
+        @include('partials.nav')
 
         
-    
-</div>
-  
-  
-  
-@include('partials.footer')
-  
-</section>
+
+       
+           
+                
+                    
+
+                        
+        @livewire('prestamos')
+                       
+                       
+                
+                
+           
+         
+
+           
+
+<div class="mt-5 ">
+    @include('partials.footer')
+    </div>
+
+                     
+
+    </section>
+   
+
+
+
+
+
+
+
+@endsection
+
+
+
+
+
+
+
+
+
