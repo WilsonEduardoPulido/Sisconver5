@@ -35,7 +35,9 @@
 
 
 
-        <div class="col-md-11 m-3">
+        <div class="row d-flex m-3">
+
+        <div class="col-9">
 
 
 
@@ -98,9 +100,10 @@
                                             <th>Nombre</th>
                                             <th>Autor</th>
                                             <th>Editorial</th>
-                                            <th>Edicion</th>
+                                            <th>Edicion</th>s
 
                                             <th>Estado</th>
+                                            <th>Cantidad</th>
                                             <th>Categoria </th>
                                             <td>Acciones</td>
                                         </tr>
@@ -132,6 +135,7 @@
                                                     </td>
                                                 @endif
 
+                                                <td>{{ $row->CantidadLibros }}</td>
 
                                                 <td>{{ $row->categoria->nombre }}</td>
                                                 <td class="d-flex">
@@ -139,13 +143,17 @@
 
                                                     <a data-bs-toggle="modal" data-bs-target="#actualizarLibroModal"
                                                         class=" bi bi-pencil-square text-white btn btn-info "
-                                                        wire:click="edit({{ $row->id }})">Editar </a>
+                                                        wire:click="edit({{ $row->id }})"></a>
                                                     <a class="btn btn-danger bi bi-trash3-fill  text-white "
                                                         onclick="confirm('Confirm Delete Libro id {{ $row->id }}? \nDeleted Libros cannot be recovered!')||event.stopImmediatePropagation()"
-                                                        wire:click="destroy({{ $row->id }})"> Inactivar</a>
+                                                        wire:click="destroy({{ $row->id }})"></a>
                                                     <a data-bs-toggle="modal" data-bs-target="#verlibro"
                                                         class=" bi bi bi-eye-fill text-white btn btn-warning "
                                                         wire:click="edit({{ $row->id }})">ver </a>
+                                                    <a data-bs-target="#prestamoLibro"
+                                                       class=" bi bi bi-eye-fill text-white btn-sm  btn btn-danger "
+                                                       wire:click="CargarDatosPrestamosLibros({{ $row->id }})">Prestar
+                                                    </a>
 
                                                 </td>
 
@@ -204,6 +212,7 @@
                                             <th>Edicion</th>
 
                                             <th>Estado</th>
+                                            <th>Cantidad</th>
                                             <th>Categoria </th>
                                             <td>Acciones</td>
                                         </tr>
@@ -244,6 +253,7 @@
                                                         class=" bi bi-pencil-square text-white btn btn-info btn-sm"
                                                         wire:click="restaurarLibro({{ $row->id }})">Resaturar
                                                     </a>
+
 
                                                     <a data-bs-toggle="modal" data-bs-target="#verlibro"
                                                         class=" bi bi bi-eye-fill text-white btn-sm  btn btn-danger "
@@ -316,4 +326,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+            <div class="col-3 card p-2 h-50">
+                @include('livewire.libros.formulario')
             </div>

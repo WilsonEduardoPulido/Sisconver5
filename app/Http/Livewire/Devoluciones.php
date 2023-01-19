@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Devolucion;
 
-class Devolucions extends Component
+class Devoluciones extends Component
 {
     use WithPagination;
 
@@ -16,8 +16,8 @@ class Devolucions extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-        return view('livewire.devolucions.view', [
-            'devolucions' => Devolucion::latest()
+        return view('livewire.devoluciones.vistaprincipal', [
+            'devoluciones' => Devolucion::latest()
 						->orWhere('Fecha_devolucion', 'LIKE', $keyWord)
 						->orWhere('prestamos_id', 'LIKE', $keyWord)
 						->orWhere('libros_id', 'LIKE', $keyWord)
@@ -27,14 +27,14 @@ class Devolucions extends Component
 						->paginate(10),
         ]);
     }
-	
+
     public function cancel()
     {
         $this->resetInput();
     }
-	
+
     private function resetInput()
-    {		
+    {
 		$this->Fecha_devolucion = null;
 		$this->prestamos_id = null;
 		$this->libros_id = null;
@@ -54,7 +54,7 @@ class Devolucions extends Component
 		'curso_id' => 'required',
         ]);
 
-        Devolucion::create([ 
+        Devolucion::create([
 			'Fecha_devolucion' => $this-> Fecha_devolucion,
 			'prestamos_id' => $this-> prestamos_id,
 			'libros_id' => $this-> libros_id,
@@ -62,7 +62,7 @@ class Devolucions extends Component
 			'usuario_id' => $this-> usuario_id,
 			'curso_id' => $this-> curso_id
         ]);
-        
+
         $this->resetInput();
 		$this->dispatchBrowserEvent('closeModal');
 		session()->flash('message', 'Devolucion Successfully created.');
@@ -71,7 +71,7 @@ class Devolucions extends Component
     public function edit($id)
     {
         $record = Devolucion::findOrFail($id);
-        $this->selected_id = $id; 
+        $this->selected_id = $id;
 		$this->Fecha_devolucion = $record-> Fecha_devolucion;
 		$this->prestamos_id = $record-> prestamos_id;
 		$this->libros_id = $record-> libros_id;
@@ -93,7 +93,7 @@ class Devolucions extends Component
 
         if ($this->selected_id) {
 			$record = Devolucion::find($this->selected_id);
-            $record->update([ 
+            $record->update([
 			'Fecha_devolucion' => $this-> Fecha_devolucion,
 			'prestamos_id' => $this-> prestamos_id,
 			'libros_id' => $this-> libros_id,

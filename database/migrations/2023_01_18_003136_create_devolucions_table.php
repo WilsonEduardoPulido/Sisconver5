@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('devolucions', function (Blueprint $table) {
+        Schema::create('devoluciones', function (Blueprint $table) {
             $table->comment('');
             $table->bigIncrements('id');
             $table->date('Fecha_devolucion');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devolucions');
+        Schema::dropIfExists('devoluciones');
     }
 };

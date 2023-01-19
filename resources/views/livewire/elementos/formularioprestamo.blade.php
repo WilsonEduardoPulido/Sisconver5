@@ -1,3 +1,4 @@
+<div>
 @if (session()->has('alertaprestamo'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -15,7 +16,7 @@
 @endif
 @if (session()->has('alertaprestamow'))
     <div wire:poll.4s class="alert alert-info alert-dismissible fade show" role="alert">
-      
+
         <strong>
             <p class="small">{{ session('alertaprestamow') }}</p>
         </strong>
@@ -49,7 +50,7 @@
     <div class="card-header bg-info text-center text-white">
         Realizar Prestamo de un elemento
     </div>
-    
+
 
 
         <form class="col-12" wire:submit.prevent="realizarPrestamo" id="#PrestamoElemento">
@@ -75,7 +76,7 @@
                 </select>
             </div>
 
-   
+
 
     <div class="">
         <label for="validationServer01" class="form-label">Elemento</label>
@@ -113,14 +114,14 @@
             Looks good!
         </div>
     </div>
-    
+
 
     <div class="mt-4 col-12 justify-content-around  d-flex">
         <button type="button" title="Cancelar" class="btn btn-danger  btn-sm text-white ">Cancelar</button>
         <button type="submit" title="Prestar" class="btn btn-warning btn-sm text-white  ">Prestar</button>
-        
+
     </div>
 
-  
+
     </form>
 </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Models;
 
@@ -10,13 +10,13 @@ class Libro extends Model
 {
 	use HasFactory;
     use SoftDeletes;
-	
+
     public $timestamps = true;
 
     protected $table = 'libros';
 
-    protected $fillable = ['Nombre','Autor','Editorial','Edicion','Descripcion','Estado','categoria_id'];
-	
+    protected $fillable = ['Nombre','Autor','Editorial','Edicion','Descripcion','Estado','categoria_id','CantidadLibros'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -24,7 +24,7 @@ class Libro extends Model
     {
         return $this->hasOne('App\Models\Categoria', 'id', 'categoria_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -32,7 +32,7 @@ class Libro extends Model
     {
         return $this->hasMany('App\Models\Devolucion', 'libros_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -40,5 +40,5 @@ class Libro extends Model
     {
         return $this->hasMany('App\Models\Prestamo', 'libros_id', 'id');
     }
-    
+
 }

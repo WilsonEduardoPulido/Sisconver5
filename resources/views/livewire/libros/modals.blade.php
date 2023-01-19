@@ -124,6 +124,16 @@
                                 <span class="error text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="form-group col-6 mb-3">
+                            <label for="CantidadLibros">Cantidad</label>
+                            <input wire:model="CantidadLibros" type="number" class="form-control" id="CantidadLibros"
+                                   placeholder="CantidadLibros">
+                            @error('CantidadLibros')
+                            <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="form-group col-6 mb-3">
                             <label for="Editorial">Editorial</label>
                             <input wire:model="Editorial" type="text" class="form-control" id="Editorial"
